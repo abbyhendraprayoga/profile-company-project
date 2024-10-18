@@ -2,7 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  padding: 0;
+:root {
+  --primary-color: #fbf4e2;
+  --secondary-color: #2e3192;
+  --green-color: #b4d51e;
+  --orange-color: #ffc735;
+  --black-color: #000000;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-hero {
+  background-image: url("/background1.png");
+  background-position: center;
+  inset: 0;
+  position: relative;
+  height: 400px;
+}
+
+@layer components {
+  .nav-link {
+    @apply relative text-white cursor-pointer text-[17px] w-fit lg:block after:block after:content-[""]
+     after:absolute after:h-[3px] after:bg-orange-300 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center;
+  }
+
+  .nav-link-mobile {
+    @apply relative mb-[2rem] text-orange-300 cursor-pointer text-[17px] w-fit lg:block after:block after:content-[""] after:absolute after:h-[3px]
+     after:bg-orange-300 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center;
+  }
 }
