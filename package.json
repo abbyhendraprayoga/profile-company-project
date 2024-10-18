@@ -9,8 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "next": "14.2.15",
     "profile-company-project": "file:",
+=======
+    "flowbite-react": "^0.10.2",
+    "next": "14.2.15",
+>>>>>>> 0465247f79f0f0efb50043a66f94ff050900408a
     "react": "^18",
     "react-dom": "^18"
   },
