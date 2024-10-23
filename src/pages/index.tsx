@@ -1,10 +1,8 @@
-import Jumbotron from "@/components/layout/jumbotron";
+import HomeView from "@/views/HomeView";
 
 export default function Home() {
   return (
-    <div>
-      <Jumbotron />
-    </div>
+    <HomeView />
   )
 }
 
