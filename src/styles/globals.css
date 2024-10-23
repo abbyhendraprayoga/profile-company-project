@@ -38,3 +38,31 @@ a {
      after:bg-orange-300 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center;
   }
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%); 
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+}
+
+.animate-scroll-infinite {
+    animation: scroll 20s linear infinite; 
+    white-space: nowrap; 
+    display: inline-block; 
+    will-change: transform; 
+}
+
+.scroll-container {
+    overflow: hidden; 
+    width: 100%; 
+}
+
