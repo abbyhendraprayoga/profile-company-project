@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const OfficeAbout = () => {
   return (
-    <div className="lg:p-20 lg:grid lg:grid-cols-2  lg:h-94 p-10 lg:mb-20">
+    <div className="lg:p-20 lg:grid lg:grid-cols-2  lg:h-94 p-10 ">
       <div className=" lg:ml-20">
         <Image
           src="/img/about/office.png"

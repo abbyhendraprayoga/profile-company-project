@@ -4,6 +4,8 @@ import VisionAbout from "@/components/layout/About/vision";
 import TeamAbout from "@/components/layout/About/team";
 import ExperienceAbout from "@/components/layout/About/experience";
 import OfficeAbout from "@/components/layout/About/office";
+import Schedule from "@/components/layout/Home/schedule";
+import Footer from "@/components/layout/Footer";
 
 const AboutView = () => {
   return (
@@ -14,6 +16,8 @@ const AboutView = () => {
       <TeamAbout />
       <ExperienceAbout />
       <OfficeAbout />
+      <Schedule />
+      <Footer />
     </>
   );
 };
