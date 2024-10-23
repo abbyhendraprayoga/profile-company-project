@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
-import { Inter } from "next/font/google"
+import { Montserrat } from "next/font/google"; 
 import dynamic from "next/dynamic";
 
-const Navbar = dynamic(() => import('../Navbar'))
+const Navbar = dynamic(() => import('../Navbar'));
 
-const inter = Inter({
+const montserrat = Montserrat({
     subsets: ['latin'],
-    weight: ['400', '700'],
+    weight: ['400', '700'], 
 });
 
 type AppShellProps = {
@@ -20,7 +20,7 @@ const AppShell = (props: AppShellProps) => {
     const { pathname } = useRouter();
 
     return (
-        <main className={inter.className}>
+        <main className={montserrat.className}> 
             {!disableNavbar.includes(pathname) && <Navbar />}
             {children}
         </main>

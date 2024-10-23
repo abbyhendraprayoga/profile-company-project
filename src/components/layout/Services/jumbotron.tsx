@@ -3,7 +3,9 @@ import conferenceImage from "@/images/image24.png";
 
 const JumbotronServices = () => {
   return (
-    <section className="bg-center bg-no-repeat bg-gray-700 bg-blend-multiply relative">
+    <section className="relative bg-center bg-no-repeat bg-gray-700 bg-blend-multiply z-10">
+      {" "}
+      {/* z-10 is low */}
       <Image
         src={conferenceImage}
         alt="Conference"
