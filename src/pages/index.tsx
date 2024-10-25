@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Footer, Navbar, Products } from "@/components";
+import ProductsPage from "./ProductsPage/index";
 
 export default function Home() {
   return (
@@ -11,10 +11,8 @@ export default function Home() {
       </Head>
       <main className="bg-white">
         <div>
-          <Navbar />
-          <Products />
+          <ProductsPage />
         </div>
-        <Footer />
       </main>
     </div>
   );

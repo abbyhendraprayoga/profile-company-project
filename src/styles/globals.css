@@ -19,22 +19,25 @@ a {
   box-sizing: border-box;
 }
 
-.bg-hero {
+.bg-products {
   background-image: url("/background1.png");
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   inset: 0;
   position: relative;
-  height: 400px;
+  height: 500px;
 }
 
 @layer components {
-  .nav-link {
-    @apply relative text-white cursor-pointer text-[17px] w-fit lg:block after:block after:content-[""]
-     after:absolute after:h-[3px] after:bg-orange-300 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center;
+  .hero-link {
+    @apply relative text-black cursor-pointer text-[17px] w-fit lg:block after:block after:content-[""]
+     after:absolute after:h-[3px] after:bg-blue-700 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center;
+    @apply after:hover:scale-x-100 after:active:scale-x-100;
   }
 
-  .nav-link-mobile {
-    @apply relative mb-[2rem] text-orange-300 cursor-pointer text-[17px] w-fit lg:block after:block after:content-[""] after:absolute after:h-[3px]
+  .link-mobile {
+    @apply relative mb-[2rem] text-white cursor-pointer text-[25px] w-fit lg:block after:block after:content-[""] after:absolute after:h-[3px]
      after:bg-orange-300 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center;
   }
 }
