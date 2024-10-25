@@ -1,11 +1,12 @@
-import { Products, LinkComponents } from "@/components";
+import { Products, LinkComponents, Navbar, Footer } from "@/components";
 import React from "react";
 
 const ProductsPage = () => {
   return (
     <div>
+      <Navbar />
       <div className="bg-products">
-        <div className="flex flex-col justify-center items-center pt-36">
+        <div className="flex flex-col justify-center items-center pt-56">
           <h1 className="text-5xl text-white font-bold">PRODUCTS</h1>
         </div>
       </div>
@@ -32,6 +33,7 @@ const ProductsPage = () => {
           Schedule Here
         </button>
       </div>
+      <Footer />
     </div>
   );
 };
