@@ -11,8 +11,9 @@ export default function Navbar() {
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <span className="text-white self-center text-3xl font-semibold whitespace-nowrap dark:text-white">
-            DIMATA
+          <span className="self-center text-3xl font-semibold whitespace-nowrap">
+            <span className="text-orange-600">PRO</span>
+            <span className="text-orange-500">CHAIN</span>
           </span>
         </Link>
         <button

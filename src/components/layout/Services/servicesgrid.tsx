@@ -1,12 +1,16 @@
 import React from "react";
-import Image from "next/image"; // Import komponen Image dari Next.js
-import { motion } from "framer-motion"; // Import framer-motion
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 const ServicesGrid = () => {
   // Variabel animasi muncul
   const fadeInUp = {
-    hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, delay: i * 0.2 },
+    }),
   };
 
   return (
@@ -15,49 +19,45 @@ const ServicesGrid = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {/* Web Development */}
           <motion.div
-            className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105"
+            className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:rotate-1"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }} // Menambahkan 'amount: 0.5' untuk memastikan elemen setengah terlihat dulu sebelum animasi dimulai
+            custom={0}
+            viewport={{ once: true, amount: 0.5 }}
             variants={fadeInUp}
-            onViewportEnter={() =>
-              console.log("Web Development masuk ke viewport")
-            }
           >
             <Image
-              src="/images/web-development.jpg"
-              alt="Web Development"
+              src="/images/iot.jpg" // Ganti path gambar di sini
+              alt="Centralized Data Management"
               width={600}
               height={300}
               className="object-cover"
             />
             <div className="p-6">
-              <h3 className="text-xl font-bold mb-2">Web Development</h3>
+              <h3 className="text-xl font-bold mb-2">
+                Centralized Data Management
+              </h3>
               <p className="text-gray-600">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum
+                Simplify operations with centralized control. ProChain
+                centralizes data on products, purchasing, pricing, stock counts,
+                and inventory transfers, giving you a complete overview in one
+                place. This powerful system supports various industries,
+                allowing businesses to manage multiple locations efficiently
+                while maintaining accurate records of product details and
+                inventory. With real-time updates, you’ll always have access to
+                the latest information for faster, data-driven decisions.
               </p>
             </div>
           </motion.div>
 
           {/* Mobile Development */}
           <motion.div
-            className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105"
+            className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:rotate-1"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }}
+            custom={1}
+            viewport={{ once: true, amount: 0.5 }}
             variants={fadeInUp}
-            onViewportEnter={() =>
-              console.log("Mobile Development masuk ke viewport")
-            }
           >
             <Image
               src="/images/mobile-development.jpg"
@@ -67,32 +67,30 @@ const ServicesGrid = () => {
               className="object-cover"
             />
             <div className="p-6">
-              <h3 className="text-xl font-bold mb-2">Mobile Development</h3>
+              <h3 className="text-xl font-bold mb-2">
+                Order & Delivery Tracking
+              </h3>
               <p className="text-gray-600">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum
+                Reliable tracking from purchase to delivery. With ProChain’s
+                Order Management System, you can track purchase orders, monitor
+                delivery status, and manage supplier relationships all in one
+                platform. This solution helps minimize errors, reduce delays,
+                and keep your customers satisfied by ensuring timely and
+                accurate delivery. From order recording to tracking, ProChain
+                provides transparency and control, making it easier to meet
+                demand and respond to any issues promptly.
               </p>
             </div>
           </motion.div>
 
           {/* Internet of Things */}
           <motion.div
-            className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105"
+            className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:rotate-1"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }}
+            custom={2}
+            viewport={{ once: true, amount: 0.5 }}
             variants={fadeInUp}
-            onViewportEnter={() =>
-              console.log("Internet of Things masuk ke viewport")
-            }
           >
             <Image
               src="/images/iot.jpg"
@@ -102,32 +100,30 @@ const ServicesGrid = () => {
               className="object-cover"
             />
             <div className="p-6">
-              <h3 className="text-xl font-bold mb-2">Internet of Things</h3>
+              <h3 className="text-xl font-bold mb-2">
+                Warehouse & Inventory Control
+              </h3>
               <p className="text-gray-600">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum
+                Efficient management for multi-location stock. ProChain’s
+                warehouse management system enables seamless transfer of stock
+                between warehouses, ensuring optimal inventory levels across all
+                locations. You can monitor stock in real-time, manage transfers,
+                and even track usage at different sites to prevent both
+                shortages and overstock. This flexibility makes ProChain ideal
+                for businesses with multiple locations, helping to streamline
+                supply chains and improve stock availability.
               </p>
             </div>
           </motion.div>
 
           {/* Artificial Intelligence */}
           <motion.div
-            className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105"
+            className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:rotate-1"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }}
+            custom={3}
+            viewport={{ once: true, amount: 0.5 }}
             variants={fadeInUp}
-            onViewportEnter={() =>
-              console.log("Artificial Intelligence masuk ke viewport")
-            }
           >
             <Image
               src="/images/ai.jpg"
@@ -138,19 +134,17 @@ const ServicesGrid = () => {
             />
             <div className="p-6">
               <h3 className="text-xl font-bold mb-2">
-                Artificial Intelligence
+                Comprehensive Reporting
               </h3>
               <p className="text-gray-600">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum
+                Data insights for better decision-making. Get a clear view of
+                your business performance with ProChain’s detailed reporting
+                system. From sales and costs to inventory levels and financials,
+                ProChain provides insights to help you make informed decisions.
+                The reporting tools enable you to track trends, analyze costs,
+                and adjust strategies for optimal growth. Combined with
+                integration to Aiso Accounting System, you’ll have a complete
+                view of your financial health at your fingertips.
               </p>
             </div>
           </motion.div>
