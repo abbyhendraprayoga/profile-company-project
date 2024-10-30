@@ -27,7 +27,7 @@ const ServicesGrid = () => {
             variants={fadeInUp}
           >
             <Image
-              src="/images/iot.jpg" // Ganti path gambar di sini
+              src="/images/image23.jpg" // Ganti path gambar di sini
               alt="Centralized Data Management"
               width={600}
               height={300}
