@@ -20,7 +20,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/components/Link-Components/index.tsx"
+    "src/components/Link-Components/index.tsx",
+    "src/pages/ProductsPage/index.tsx"
   ],
   "exclude": ["node_modules"]
 }
