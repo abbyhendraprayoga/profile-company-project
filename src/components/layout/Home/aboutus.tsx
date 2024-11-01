@@ -18,15 +18,12 @@ const AboutUs = () => {
           <span className="text-indigo-900 font-medium">ABOUT US</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 lg:w-96">
-          Empowering Business Harmony.
+          Turning visions into reality.
         </h1>
         <p className="w-full text-sm sm:text-lg text-indigo-900">
-          Welcome to ProChain, where Centralized and Distributed solutions come
-          together in perfect harmony. As a trusted partner for diverse
-          industries—from minimarket chains, restaurants, and furniture outlets
-          to art and jewelry, precious metals, textiles, and garments—ProChain
-          provides tailored, high-efficiency solutions for managing your
-          business.
+          Dimata IT Solutions was founded in 2002 with a vision to develop smart
+          information systems using the latest technologies. We have
+          successfully delivered software solutions for various industries.
         </p>
         <div className="flex flex-row space-y-4 mt-3">
           <a
