@@ -9,6 +9,41 @@ body {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+:root {
+  --primary-color: #fbf4e2;
+  --secondary-color: #2e3192;
+  --green-color: #b4d51e;
+  --orange-color: #ffc735;
+  --black-color: #000000;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-products {
+  background-image: url("/background1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 400px;
+  z-index: -1;
+}
+
+@layer components {
+  .hero-link {
+    @apply relative text-black cursor-pointer text-[17px] w-fit lg:block after:block after:content-[""]
+     after:absolute after:h-[3px] after:bg-blue-700 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center;
+    @apply after:hover:scale-x-100 after:active:scale-x-100;
+  }
+}
+
 .fade-enter {
   opacity: 0;
 }
