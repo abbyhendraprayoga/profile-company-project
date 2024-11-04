@@ -21,7 +21,7 @@
     "**/*.ts",
     "**/*.tsx",
     "src/components/Link-Components/index.tsx",
-    "src/pages/ProductsPage/index.tsx"
+    "src/pages/products/index.tsx"
   ],
   "exclude": ["node_modules"]
 }
