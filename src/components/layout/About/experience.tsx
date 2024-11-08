@@ -1,6 +1,9 @@
 const ExperienceAbout = () => {
   return (
-    <div className=" bg-slate-300 h-94 w-full lg:p-20 p-10">
+    <div
+      className=" bg-slate-300 h-94 w-full lg:p-20 p-10"
+      data-aos="fade-down"
+    >
       <div className="lg:flex ">
         <div>
           <hr className="w-9 bg-indigo-900 h-0.5" />
