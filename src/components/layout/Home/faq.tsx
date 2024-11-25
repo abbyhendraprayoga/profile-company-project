@@ -52,14 +52,14 @@ const Faq = () => {
                 {faq.map((item, index) => (
                     <div
                         key={item.id}
-                        className={`group flex flex-col justify-between border-2 border-indigo-900 w-full sm:w-[90%] lg:w-full cursor-pointer 
-                    ${activeIndex === index ? 'bg-indigo-900 text-white' : 'bg-white hover:bg-indigo-900 hover:text-white'}`}
+                        className={`group flex flex-col justify-between border-2 border-indigo-900 w-full sm:w-[90%] lg:w-full cursor-pointer
+        ${activeIndex === index ? 'bg-indigo-900 text-white' : 'bg-white hover:bg-indigo-900 hover:text-white transition-all duration-300 ease-in-out'}`}
                         onClick={() => handleClick(index)}
                     >
                         <div className="flex flex-row justify-between items-center w-full p-4 sm:p-5">
                             <h1
-                                className={`text-lg sm:text-xl font-bold text-gray-800 group-hover:text-white 
-                            ${activeIndex === index ? 'text-white' : ''}`}
+                                className={`text-lg sm:text-xl font-bold text-gray-800 group-hover:text-white
+                ${activeIndex === index ? 'text-white' : ''}`}
                             >
                                 {item.question}
                             </h1>
@@ -68,22 +68,25 @@ const Faq = () => {
                                 alt="down"
                                 width={20}
                                 height={20}
-                                className={`transform transition-transform duration-500 ease-in-out 
-                        ${activeIndex === index ? 'rotate-180' : ''}`}
+                                className={`transform transition-transform duration-300 ease-in-out
+                ${activeIndex === index ? 'rotate-180' : ''}`}
                             />
                         </div>
-                        {activeIndex === index && (
-                            <div
-                                className={`overflow-hidden cursor-default transition-all duration-300 ease-in-out 
-                        ${activeIndex === index ? 'max-h-[200px]' : 'max-h-0'}`}
-                            >
+
+                        {/* Answer Section with Smooth Animation */}
+                        <div
+                            className={`overflow-hidden transition-all duration-500 ease-in-out
+            ${activeIndex === index ? 'max-h-[500px]' : 'max-h-0'}`}
+                        >
+                            {activeIndex === index && (
                                 <div className="p-4 sm:p-5 text-gray-800 bg-white">
                                     <p>{item.answer}</p>
                                 </div>
-                            </div>
-                        )}
+                            )}
+                        </div>
                     </div>
                 ))}
+
             </div>
         </div>
 
