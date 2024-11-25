@@ -62,10 +62,10 @@ const Testimonial = () => {
                 <div className="flex flex-col p-5 gap-5 bg-white w-full max-w-lg lg:max-w-md shadow-lg rounded-lg overflow-hidden">
                     <div
                         className={`flex flex-col duration-300 transform ${isAnimating
-                                ? animationDirection === "right"
-                                    ? "translate-x-full opacity-0"
-                                    : "-translate-x-full opacity-0"
-                                : "translate-x-0 opacity-100"
+                            ? animationDirection === "right"
+                                ? "translate-x-full opacity-0"
+                                : "-translate-x-full opacity-0"
+                            : "translate-x-0 opacity-100"
                             }`}
                     >
                         <div className="flex flex-row justify-end items-center gap-4">
@@ -88,8 +88,16 @@ const Testimonial = () => {
                         </div>
                     </div>
                     <div className="flex flex-row gap-3 items-center justify-end">
-                        <FaArrowLeftLong size={24} className="cursor-pointer" onClick={handlePrevious} />
-                        <FaArrowRightLong size={24} className="cursor-pointer" onClick={handleNext} />
+                        <FaArrowLeftLong
+                            size={24}
+                            className="cursor-pointer hover:scale-110 hover:opacity-80 transition transform duration-300"
+                            onClick={handlePrevious}
+                        />
+                        <FaArrowRightLong
+                            size={24}
+                            className="cursor-pointer hover:scale-110 hover:opacity-80 transition transform duration-300"
+                            onClick={handleNext}
+                        />
                     </div>
                 </div>
             </div>

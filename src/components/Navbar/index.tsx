@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { useSession, signOut } from "next-auth/react";
 
 export default function Navbar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false); // State for sidebar toggle
   const [isScrolled, setIsScrolled] = useState(false); // State for scroll detection
+  const { data: session } = useSession();
 
   // Detect scroll position and update state
   useEffect(() => {
@@ -131,11 +133,25 @@ export default function Navbar() {
                   Contact
                 </Link>
               </li>
-              <li>
-                <Link href="/auth" className="block px-5 py-2 text-white bg-amber-500 rounded-lg hover:bg-amber-600">
-                  Login
-                </Link>
-              </li>
+              {!session ? (
+                <li>
+                  <Link
+                    href="/auth/signin"
+                    className="block px-5 py-2 text-white bg-amber-500 rounded hover:bg-amber-600"
+                  >
+                    Login
+                  </Link>
+                </li>
+              ) : (
+                <li>
+                    <button
+                      onClick={() => signOut()}
+                      className="block px-5 py-2 text-white bg-amber-500 rounded hover:bg-amber-600"
+                    >
+                      Sign Out
+                    </button>
+                </li>
+              )}
             </ul>
           </div>
 
@@ -189,11 +205,30 @@ export default function Navbar() {
                   Contact
                 </Link>
               </li>
-              <li>
-                <Link href="/auth" className="block px-5 py-2 text-white bg-amber-500 rounded hover:bg-amber-600">
-                  Login
-                </Link>
-              </li>
+              {!session ? (
+                <li>
+                  <Link
+                    href="/auth/signin"
+                    className="block px-5 py-2 text-white bg-amber-500 rounded hover:bg-amber-600"
+                  >
+                    Login
+                  </Link>
+                </li>
+              ) : (
+                <li>
+                    <button
+                      onClick={() => signOut()}
+                      className="flex items-center space-x-2 text-white"
+                    >
+                      <Image
+                          src={session.user?.image || "/Image/user.svg"}
+                        alt="Profile"
+                        className="w-10 h-10 rounded-full"
+                          width={20} height={20}
+                      />
+                    </button>
+                </li>
+              )}
             </ul>
           </div>
         </div>
@@ -203,7 +238,7 @@ export default function Navbar() {
       <Link
         href="https://wa.me/623614484425?text=Hello%20Customer%20Services%2C%20I%20need%20assistance."
         target="_blank" 
-        className="fixed bottom-4 right-4 p-2 z-10 bg-amber-500 border border-4 border-white text-white rounded-full shadow-lg hover:bg-amber-600 focus:outline-none transition-all duration-300 ease-in-out"
+        className="fixed bottom-4 right-4 p-2 z-10 bg-amber-500 border-4 border-white text-white rounded-full shadow-lg hover:bg-amber-600 focus:outline-none transition-all duration-300 ease-in-out"
       >
         <Image src="/Image/icons/cs.svg" alt="Customer Service" width={30} height={30} />
       </Link>
