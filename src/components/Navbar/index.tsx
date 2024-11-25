@@ -83,9 +83,9 @@ export default function Navbar() {
             </li>
             <li>
               <Link
-                href="/products"
+                href="/ProductsPage"
                 className={`block py-2 px-3 ${
-                  router.pathname === "/products"
+                  router.pathname === "/ProductsPage"
                     ? "text-amber-500"
                     : "text-white hover:text-amber-600"
                 } md:p-0`}
