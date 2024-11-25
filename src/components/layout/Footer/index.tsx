@@ -15,7 +15,7 @@ const Footer = () => {
                 <div className="flex flex-col gap-2">
                     <span className="text-white text-xl font-semibold whitespace-nowrap dark:text-white">Follow Us</span>
                     <div className="flex gap-4">
-                        <Link href="https://www.facebook.com" passHref>
+                        <Link href="https://www.facebook.com/" passHref>
                             <FaFacebook size={35} className="cursor-pointer text-white hover:text-blue-600" />
                         </Link>
                         <Link href="https://www.linkedin.com" passHref>
