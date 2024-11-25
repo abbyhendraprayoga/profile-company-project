@@ -19,16 +19,13 @@ const TeamAbout = () => {
       role: "Assistant Manager",
       image: "/img/about/ahmad.png",
     },
-    {
-      name: "Abdul",
-      role: "Star Boy",
-      image: "/img/about/ahmad.png",
-    },
+    { name: "Abdul", role: "Star Boy", image: "/img/about/ahmad.png" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isSmallScreen, setIsSmallScreen] = useState(false); // State untuk deteksi layar kecil
   const [maxItems, setMaxItems] = useState(8); // Default untuk layar besar
+  const [fadeIn, setFadeIn] = useState(true); // Untuk animasi fade in/fade out
 
   // Menyesuaikan maxItems untuk layar besar/kecil
   useEffect(() => {
@@ -54,13 +51,21 @@ const TeamAbout = () => {
   }, []);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + maxItems) % members.length);
+    setFadeIn(false); // Mulai fade-out
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev + maxItems) % members.length);
+      setFadeIn(true); // Mulai fade-in
+    }, 300); // Durasi fade-out sebelum mengganti gambar
   }, [maxItems, members.length]);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex(
-      (prev) => (prev - maxItems + members.length) % members.length
-    );
+    setFadeIn(false); // Mulai fade-out
+    setTimeout(() => {
+      setCurrentIndex(
+        (prev) => (prev - maxItems + members.length) % members.length
+      );
+      setFadeIn(true); // Mulai fade-in
+    }, 300); // Durasi fade-out sebelum mengganti gambar
   }, [maxItems, members.length]);
 
   useEffect(() => {
@@ -73,9 +78,9 @@ const TeamAbout = () => {
 
   return (
     <div className="p-10 lg:p-20">
-      <div className="flex flex-col  justify-center items-center ">
-        <div className="flex flex-col items-left ">
-          <div className="lg:mr-40 ">
+      <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col items-left">
+          <div className="lg:mr-40">
             <hr className="w-9 bg-indigo-900 font-weight h-0.5" />
             <h1 className="text-indigo-900 font-medium">OUR TEAM</h1>
             <p className="text-black font-bold text-3xl mt-3 text-gray-700">
@@ -106,15 +111,21 @@ const TeamAbout = () => {
               .map((member, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center w-40 h-auto lg:w-72 lg:h-auto justify-center"
+                  className="flex flex-col items-center w-40 h-auto lg:w-72 lg:h-auto justify-center transition duration-300 ease-in-out"
                 >
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    width={150}
-                    height={150}
-                    className=""
-                  />
+                  <div
+                    className={`transition-opacity duration-500 ease-in-out ${
+                      fadeIn ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      width={150}
+                      height={150}
+                      className="transition duration-300 ease-in-out" // Menghilangkan hover efek
+                    />
+                  </div>
                   <h2 className="mt-3 text-black font-bold">{member.name}</h2>
                   <p className="text-sm">{member.role}</p>
                 </div>
@@ -124,7 +135,7 @@ const TeamAbout = () => {
           {/* Tombol Navigasi */}
           <button
             onClick={prevSlide}
-            className="absolute top-1/2 left-0 transform lg:-translate-y-1/2 -translate-x-20 -translate-y-20 lg:-translate-x-20 text-white p-3 rounded-full hover:text-opacity-100 text-opacity-70 transition duration-300 ease-in-ou "
+            className="absolute top-1/2 left-0 transform lg:-translate-y-1/2 -translate-x-20 -translate-y-20 lg:-translate-x-20 text-white p-3 rounded-full hover:text-opacity-100 text-opacity-70 transition duration-300 ease-in-out"
           >
             <Image
               src="/img/about/lebih.png"

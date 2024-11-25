@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import JumbotronAbout from "@/components/layout/About/jumbotron";
 import StoryAbout from "@/components/layout/About/story";
 import VisionAbout from "@/components/layout/About/vision";
@@ -6,31 +10,39 @@ import ExperienceAbout from "@/components/layout/About/experience";
 import OfficeAbout from "@/components/layout/About/office";
 
 import Footer from "@/components/layout/Footer";
-import FadeInOnScroll from "@/components/layout/FadeInOnScroll";
 
 const AboutView = () => {
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Durasi animasi (dalam ms)
+      once: true, // Animasi hanya terjadi sekali saat scroll
+    });
+  }, []);
+
   return (
     <>
-      <FadeInOnScroll>
+      <div data-aos="fade-up">
         <JumbotronAbout />
-      </FadeInOnScroll>
-      <FadeInOnScroll>
+      </div>
+      <div data-aos="fade-right">
         <StoryAbout />
-      </FadeInOnScroll>
-      <FadeInOnScroll>
+      </div>
+      <div data-aos="fade-left">
         <VisionAbout />
-      </FadeInOnScroll>
-      <FadeInOnScroll>
+      </div>
+      <div data-aos="fade-up">
         <TeamAbout />
-      </FadeInOnScroll>
-      <FadeInOnScroll>
+      </div>
+      <div data-aos="fade-right">
         <ExperienceAbout />
-      </FadeInOnScroll>
-      <FadeInOnScroll>
+      </div>
+      <div data-aos="fade-left">
         <OfficeAbout />
-      </FadeInOnScroll>
+      </div>
       <Footer />
     </>
   );
 };
+
 export default AboutView;

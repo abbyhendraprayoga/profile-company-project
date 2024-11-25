@@ -25,14 +25,6 @@ const StoryAbout = () => {
           information systems using the latest technologies. We have
           successfully delivered software solutions for various industries.
         </p>
-        <div className="flex flex-row space-y-4 mt-3">
-          <a
-            href="#"
-            className="inline-flex py-3 px-10 text-base font-medium text-center text-white bg-indigo-800 hover:bg-indigo-900"
-          >
-            Read More
-          </a>
-        </div>
       </div>
     </div>
   );

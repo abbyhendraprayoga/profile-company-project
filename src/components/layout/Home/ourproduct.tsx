@@ -72,24 +72,38 @@ const OurProducts = () => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
                 {products.map((product) => (
-                    <div key={product.id}>
-                        <Image
-                            src={product.imageSrc}
-                            alt={product.imageAlt}
-                            width={309}
-                            height={300}
-                            className="w-full"
-                        />
+                    <div
+                        key={product.id}
+                        className="group relative transform transition-transform duration-300 ease-in-out hover:scale-105"
+                    >
+                        
+                        <div className="relative overflow-hidden cursor-pointer">
+                            <Image
+                                src={product.imageSrc}
+                                alt={product.imageAlt}
+                                width={309}
+                                height={300}
+                                className="w-full transition-transform duration-300 ease-in-out group-hover:blur-sm"
+                            />
+                            
+                            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <span className="text-white text-lg font-bold">Learn More</span>
+                            </div>
+                        </div>
+
+                        
                         <div className="flex flex-row align-center justify-center transform -translate-y-16">
                             <div className="flex flex-row bg-white items-center justify-center gap-3 px-5 py-3">
                                 <h1 className="font-extrabold text-lg">{product.title}</h1>
-                                <hr className="w-0 h-7 border-l-2 border-indigo-900" />
+                                <hr className="w-0 h-7 border-l-2 border-indigo-900" /> 
                                 <p className="text-xs">{product.description}</p>
                             </div>
                         </div>
                     </div>
                 ))}
             </div>
+
+
         </div>
     );
 };
