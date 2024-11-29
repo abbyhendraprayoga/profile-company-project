@@ -1,13 +1,9 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import Select, { SingleValue } from "react-select"; // Import SingleValue type
+
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
 // Define the type for the options
-interface OptionType {
-  value: string;
-  label: string;
-}
 
 const Testimonial = () => {
   const testimonialsData = [
@@ -34,15 +30,6 @@ const Testimonial = () => {
       imageUrl: "/Image/user.svg",
     },
   ];
-
-  const options: OptionType[] = [
-    { value: "Client", label: "Client" },
-    { value: "Mitra", label: "Mitra" },
-  ];
-
-  const [name, setName] = useState("");
-  const [role, setRole] = useState<OptionType | null>(null); // Use OptionType instead of string
-  const [message, setMessage] = useState("");
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animationDirection, setAnimationDirection] = useState<
@@ -79,12 +66,20 @@ const Testimonial = () => {
     setShowTestimonial(false);
   };
 
-  // Constructing the mailto link with URL encoding for special characters
-  const mailtoLink = `mailto:your-email@example.com?subject=New Testimonial&body=Name: ${encodeURIComponent(
-    name
-  )}%0D%0ARole: ${encodeURIComponent(
-    role?.label || ""
-  )}%0D%0AMessage: ${encodeURIComponent(message)}`;
+  const dontShowTestimonial = () => {
+    if (window.scrollY > 2) {
+      setShowTestimonial(false);
+    } else {
+      setShowTestimonial(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", dontShowTestimonial);
+    return () => {
+      window.removeEventListener("scroll", dontShowTestimonial);
+    };
+  }, []);
 
   return (
     <div className="relative flex pt-16 md:pt-32 font-sans">
@@ -112,7 +107,10 @@ const Testimonial = () => {
         )}
 
         {showTestimonial && (
-          <div className="flex flex-col bg-white max-w-lg lg:max-w-md shadow-lg rounded-lg w-96 p-7 z-30">
+          <div
+            data-aos="fade-up"
+            className="flex flex-col bg-white max-w-lg lg:max-w-md shadow-lg rounded-lg w-96 p-7 z-30"
+          >
             <div className="flex flex-row justify-between items-center w-full">
               <h1 className="text-lg font-bold">Share Your Experience</h1>
               <button
@@ -124,42 +122,48 @@ const Testimonial = () => {
             </div>
 
             <div className="flex flex-col w-full mt-5 gap-4">
-              <input
-                type="text"
-                className="p-2 rounded-lg w-full border border-gray-300"
-                placeholder="Input name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <Select
-                options={options}
-                value={role}
-                onChange={(selectedOption: SingleValue<OptionType>) =>
-                  setRole(selectedOption)
-                }
-                styles={{
-                  menu: (provided) => ({
-                    ...provided,
-                    maxHeight: 150,
-                    overflowY: "auto",
-                  }),
-                }}
-              />
-              <textarea
-                className="p-3 h- rounded-lg w-full border border-gray-300 resize-none overflow-y-auto"
-                placeholder="Input your experience"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              />
-            </div>
-
-            <div className="flex flex-row justify-end items-center w-full mt-5">
-              <a href={mailtoLink}>
-                <button className="bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded-lg">
+              <form
+                className="flex flex-col gap-4"
+                action="https://api.web3forms.com/submit"
+                method="POST"
+              >
+                <input
+                  type="hidden"
+                  name="access_key"
+                  value="81e183a4-2b1e-423e-b64d-308188614f9e"
+                ></input>
+                <input
+                  type="text"
+                  placeholder="Input your name"
+                  className="p-3 rounded-lg w-full border border-gray-300"
+                  name="name"
+                  required
+                />
+                <input
+                  type="email"
+                  placeholder="Input your email"
+                  className="p-3 rounded-lg w-full border border-gray-300"
+                  name="email"
+                  required
+                />
+                <textarea
+                  className="p-3 h- rounded-lg w-full border border-gray-300 resize-none overflow-y-auto"
+                  placeholder="Input your experience"
+                  typeof="text"
+                  name="message"
+                  required
+                />
+                <button
+                  type="submit"
+                  name="submit"
+                  className="bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded-lg"
+                >
                   Submit
                 </button>
-              </a>
+              </form>
             </div>
+
+            <div className="flex flex-row justify-end items-center w-full mt-5"></div>
           </div>
         )}
 
