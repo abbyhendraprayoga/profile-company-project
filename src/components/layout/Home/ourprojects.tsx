@@ -1,13 +1,19 @@
 import Image from "next/image";
 
 const OurProjects = () => {
-    return(
+    return (
         <div className="flex flex-col gap-3 lg:py-32">
+            {/* Section 1 */}
             <div className="flex flex-col lg:flex-row gap-5">
-                {/* Hidden on mobile and visible on lg screens */}
-                <Image src="/Image/projects/1.svg" alt="Image 1" width={322} height={322} className="hidden lg:block" />
-                <Image src="/Image/projects/1.svg" alt="Image 1" width={322} height={322} className="hidden lg:block" />
+                {/* Images on large screens */}
+                <div className="hidden lg:block flex-1">
+                    <Image src="/Image/projects/1.svg" alt="Image 1" width={322} height={322} />
+                </div>
+                <div className="hidden lg:block flex-1">
+                    <Image src="/Image/projects/1.svg" alt="Image 1" width={322} height={322} />
+                </div>
 
+                {/* Content Section */}
                 <div className="flex p-6 lg:pr-32 justify-end w-full">
                     <div className="flex flex-col justify-start items-end w-full gap-3">
                         <div className="flex flex-col justify-start items-end">
@@ -29,16 +35,24 @@ const OurProjects = () => {
                 </div>
             </div>
 
+            {/* Section 2 */}
             <div className="flex flex-col lg:flex-row gap-5">
-                {/* Hidden on mobile and visible on lg screens */}
-                <Image src="/Image/projects/1.svg" alt="Image 1" width={322} height={322} className="hidden lg:block" />
-                <Image src="/Image/projects/1.svg" alt="Image 1" width={322} height={322} className="hidden lg:block" />
-                <Image src="/Image/projects/1.svg" alt="Image 1" width={322} height={322} className="hidden lg:block" />
-                <Image src="/Image/projects/1.svg" alt="Image 1" width={322} height={322} className="hidden lg:block" />
+                {/* Images for large screens */}
+                <div className="hidden lg:block flex-1">
+                    <Image src="/Image/projects/1.svg" alt="Image 1" width={322} height={322} />
+                </div>
+                <div className="hidden lg:block flex-1">
+                    <Image src="/Image/projects/1.svg" alt="Image 1" width={322} height={322} />
+                </div>
+                <div className="hidden lg:block flex-1">
+                    <Image src="/Image/projects/1.svg" alt="Image 1" width={322} height={322} />
+                </div>
+                <div className="hidden lg:block flex-1">
+                    <Image src="/Image/projects/1.svg" alt="Image 1" width={322} height={322} />
+                </div>
             </div>
         </div>
-
-    )
+    );
 }
 
 export default OurProjects;

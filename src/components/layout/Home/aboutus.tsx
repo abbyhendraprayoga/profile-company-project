@@ -1,10 +1,12 @@
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules"; // Gunakan dari "swiper/modules"
+import { Autoplay, Navigation } from "swiper/modules"; // Use modules from "swiper/modules"
 import "swiper/css";
 import "swiper/css/navigation";
 
+// Data for About Us
 const aboutData = [
   {
     id: 1,
@@ -41,10 +43,33 @@ const aboutData = [
 ];
 
 const AboutUs = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate a loading delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Delay loading for 1 second
+    return () => clearTimeout(timer); // Clear timer on unmount
+  }, []);
+
+  // Show skeleton loader while loading
+  if (isLoading) {
+    return (
+      <div className="py-10">
+        <div className="space-y-8 animate-pulse">
+          <div className="w-full h-64 bg-gray-300 rounded-lg"></div>
+          <div className="w-3/4 h-6 bg-gray-300 rounded"></div>
+          <div className="w-1/2 h-4 bg-gray-300 rounded"></div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="py-10">
       <Swiper
-        modules={[Autoplay, Navigation]} // Daftarkan modul di sini
+        modules={[Autoplay, Navigation]} // Register modules here
         spaceBetween={50}
         slidesPerView={1}
         autoplay={{
