@@ -1,41 +1,47 @@
-import { useState } from 'react';
-import Image from "next/image";
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
-const faq = [
-    {
-        id: 1,
-        question: 'What technologies are commonly used to build software at Dimata IT Solutions?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula vehicula diam, in elementum tellus convallis ac.'
-    },
-    {
-        id: 2,
-        question: 'What technologies are commonly used to build software at Dimata IT Solutions?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula vehicula diam, in elementum tellus convallis ac.'
-    },
-    {
-        id: 3,
-        question: 'What technologies are commonly used to build software at Dimata IT Solutions?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula vehicula diam, in elementum tellus convallis ac.'
-    },
-    {
-        id: 4,
-        question: 'What technologies are commonly used to build software at Dimata IT Solutions?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula vehicula diam, in elementum tellus convallis ac.'
-    },
-    {
-        id: 5,
-        question: 'What technologies are commonly used to build software at Dimata IT Solutions?',
-        answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula vehicula diam, in elementum tellus convallis ac.'
-    },
+const faqData = [
+    { id: 1, question: 'What technologies are commonly used to build software at Dimata IT Solutions?', answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula vehicula diam, in elementum tellus convallis ac.' },
+    { id: 2, question: 'What technologies are commonly used to build software at Dimata IT Solutions?', answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula vehicula diam, in elementum tellus convallis ac.' },
+    { id: 3, question: 'What technologies are commonly used to build software at Dimata IT Solutions?', answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula vehicula diam, in elementum tellus convallis ac.' },
+    { id: 4, question: 'What technologies are commonly used to build software at Dimata IT Solutions?', answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula vehicula diam, in elementum tellus convallis ac.' },
+    { id: 5, question: 'What technologies are commonly used to build software at Dimata IT Solutions?', answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula vehicula diam, in elementum tellus convallis ac.' },
 ];
 
 const Faq = () => {
-
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     const handleClick = (index: number) => {
         setActiveIndex(index === activeIndex ? null : index); // Toggle the active index
     };
+
+    useEffect(() => {
+        // Simulating an API call delay
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1500); // Simulate 1.5 seconds loading
+    }, []);
+
+    if (isLoading) {
+        return (
+            <div className="flex flex-col gap-5 p-5 sm:px-10 lg:px-32">
+                <div className="flex flex-col gap-3">
+                    <div>
+                        <hr className="w-9 bg-indigo-900 h-0.5" />
+                        <span className="text-indigo-900 font-medium">FAQ</span>
+                    </div>
+                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800">
+                        Frequently Asked Questions
+                    </h1>
+                </div>
+                <div className="flex justify-center items-center">
+                    <span className="text-lg text-indigo-900">Loading...</span>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="flex flex-col gap-5 p-5 sm:px-10 lg:px-32">
@@ -49,7 +55,7 @@ const Faq = () => {
                 </h1>
             </div>
             <div className="flex flex-col justify-center items-center gap-5">
-                {faq.map((item, index) => (
+                {faqData.map((item, index) => (
                     <div
                         key={item.id}
                         className={`group flex flex-col justify-between border-2 border-indigo-900 w-full sm:w-[90%] lg:w-full cursor-pointer
@@ -86,11 +92,9 @@ const Faq = () => {
                         </div>
                     </div>
                 ))}
-
             </div>
         </div>
-
     );
-}
+};
 
 export default Faq;
