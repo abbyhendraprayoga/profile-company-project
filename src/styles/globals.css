@@ -28,11 +28,21 @@ a {
 
 .bg-products {
   background-image: url("/background1.png");
+  background-position: center; /* Menjaga gambar berada di tengah */
+  background-repeat: no-repeat; /* Mencegah gambar diulang */
+  background-size: contain; /* Mencocokkan gambar dalam ruang yang tersedia tanpa dipotong */
+  position: relative; /* Membuat konteks posisi untuk elemen anak ( jika ada) */
+  height: 500px; /* Tinggi kontainer */
+  z-index: -1; /* Pastikan elemen ini berada di belakang elemen lain */
+}
+.bg-detail {
+  background-image: url("/Image/products/1.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   height: 400px;
+  height: 500px;
   z-index: -1;
 }
 
@@ -87,8 +97,6 @@ a {
   overflow: hidden;
   width: 100%;
 }
-
-/* project css */
 
 body {
   margin: 0;
